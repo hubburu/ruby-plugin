@@ -56,8 +56,6 @@ require "hubburu"
 class AppSchema < GraphQL::Schema
   ...
 
-  use(Hubburu, request_id_context_key: :request_id)
-
   use(Hubburu,
     request_id_context_key: :request_id,
     queue_method: ->(path, body, headers) { YOUR_ASYNCHRONOUS_WORKER_METHOD(path, body, headers) })
